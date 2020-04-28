@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PickView_Example' do
+  pod 'PickView', :path => '../'
+
+  target 'PickView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
