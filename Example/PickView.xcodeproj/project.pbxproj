@@ -15,6 +15,9 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		66D3D603179346D95FCB9941 /* Pods_PickView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B846C049A4045C2B72DAEE79 /* Pods_PickView_Tests.framework */; };
+		F075700D24585F5C00808697 /* DYTAreaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075700C24585F5C00808697 /* DYTAreaPickerView.swift */; };
+		F075700F24591A9F00808697 /* AddressAreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075700E24591A9E00808697 /* AddressAreaModel.swift */; };
+		F075701124591FBF00808697 /* region.plist in Resources */ = {isa = PBXBuildFile; fileRef = F075701024591FBE00808697 /* region.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +43,16 @@
 		607FACE51AFB9204008FA782 /* PickView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		638B158DFB1BBE8CEB66A2E5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		638B158DFB1BBE8CEB66A2E5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7710BD9D29170A55000D8859 /* Pods-PickView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickView_Example.release.xcconfig"; path = "Target Support Files/Pods-PickView_Example/Pods-PickView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		78D294DF5C5AF7C372283C39 /* Pods-PickView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickView_Example.debug.xcconfig"; path = "Target Support Files/Pods-PickView_Example/Pods-PickView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9A81B756C7670924FCFD7E54 /* PickView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = PickView.podspec; path = ../PickView.podspec; sourceTree = "<group>"; };
+		9A81B756C7670924FCFD7E54 /* PickView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PickView.podspec; path = ../PickView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B846C049A4045C2B72DAEE79 /* Pods_PickView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47460ADBF8C8817C4CE2956 /* Pods_PickView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F837B2829C17C93095CEF7D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F075700C24585F5C00808697 /* DYTAreaPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYTAreaPickerView.swift; sourceTree = "<group>"; };
+		F075700E24591A9E00808697 /* AddressAreaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAreaModel.swift; sourceTree = "<group>"; };
+		F075701024591FBE00808697 /* region.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = region.plist; sourceTree = "<group>"; };
+		F837B2829C17C93095CEF7D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 		607FACD21AFB9204008FA782 /* Example for PickView */ = {
 			isa = PBXGroup;
 			children = (
+				F075701024591FBE00808697 /* region.plist */,
+				F075700C24585F5C00808697 /* DYTAreaPickerView.swift */,
+				F075700E24591A9E00808697 /* AddressAreaModel.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -156,7 +165,6 @@
 				32CA04E029E69FAE7ACFD619 /* Pods-PickView_Tests.debug.xcconfig */,
 				18C2831BB85EB15174139E5D /* Pods-PickView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +235,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -248,6 +257,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F075701124591FBF00808697 /* region.plist in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F075700F24591A9F00808697 /* AddressAreaModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F075700D24585F5C00808697 /* DYTAreaPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

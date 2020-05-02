@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +15,63 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boc-vX-ygN">
+                                <rect key="frame" x="16" y="72" width="112" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="YCO-Z6-kfV"/>
+                                    <constraint firstAttribute="width" constant="112" id="deg-BT-Nd1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikt-XS-2fA">
+                                <rect key="frame" x="131" y="72" width="228" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="J7N-zK-deq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBv-qA-VmN">
+                                <rect key="frame" x="97" y="182" width="148" height="65"/>
+                                <color key="backgroundColor" red="0.51372549020000002" green="0.50588235290000005" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="TrF-Lk-0gc"/>
+                                </constraints>
+                                <state key="normal" title="地址选择器">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="click:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vmZ-gR-uWp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GBv-qA-VmN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="81" id="018-ZZ-9Qk"/>
+                            <constraint firstItem="boc-vX-ygN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="B0K-0H-H3d"/>
+                            <constraint firstItem="GBv-qA-VmN" firstAttribute="top" secondItem="boc-vX-ygN" secondAttribute="bottom" constant="77" id="Bin-5u-IXI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GBv-qA-VmN" secondAttribute="trailing" constant="114" id="Jgf-kd-MD4"/>
+                            <constraint firstItem="boc-vX-ygN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="72" id="NuR-qo-9Hr"/>
+                            <constraint firstItem="ikt-XS-2fA" firstAttribute="leading" secondItem="boc-vX-ygN" secondAttribute="trailing" constant="3" id="Qky-rr-j1N"/>
+                            <constraint firstItem="ikt-XS-2fA" firstAttribute="centerY" secondItem="boc-vX-ygN" secondAttribute="centerY" id="ebB-dN-6Ae"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ikt-XS-2fA" secondAttribute="trailing" id="pXY-21-pcL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressLab" destination="ikt-XS-2fA" id="h9d-U1-Ybu"/>
+                        <outlet property="btnClick" destination="GBv-qA-VmN" id="AyL-de-xgi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
