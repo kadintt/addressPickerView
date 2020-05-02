@@ -134,8 +134,8 @@ extension DYTAreaPickerView {
                 tableData = provinceArr
                 reloadAreaData(regionInfo.provinceCode)
                 show.provinceLab.textColor = UIColor.text_cyan
-                show.citiesLab.textColor = UIColor.dyt_text
-                show.areaLab.textColor = UIColor.dyt_text
+                show.citiesLab.textColor = regionInfo.cityText.isEmpty ? UIColor.text_cyan : UIColor.dyt_text
+                show.areaLab.textColor = regionInfo.countyText.isEmpty ? UIColor.text_cyan : UIColor.dyt_text
                 print("点击了省的按钮\(provinceArr)")
                 break
             case TableShowDataType.TableShowDataTypeCities.rawValue:
@@ -146,7 +146,7 @@ extension DYTAreaPickerView {
                 reloadAreaData(regionInfo.cityCode)
                 show.provinceLab.textColor = UIColor.dyt_text
                 show.citiesLab.textColor = UIColor.text_cyan
-                show.areaLab.textColor = UIColor.dyt_text
+                show.areaLab.textColor = regionInfo.countyText.isEmpty ? UIColor.text_cyan : UIColor.dyt_text
                 print("点击了市的按钮\(citiesArr)")
                 
                 break
@@ -179,6 +179,7 @@ extension DYTAreaPickerView {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AreaCell_id", for: indexPath) as! AreaCell
         
         if indexPath.row < tableData!.count {
+
             cell.model = tableData![indexPath.row]
         }
         return cell
@@ -187,12 +188,16 @@ extension DYTAreaPickerView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let model = tableData![indexPath.row]
+        
+        guard let data = tableData else { return  }
+        let model = data[indexPath.row]
         print(model.areaName)
 
         switch currentType {
             case .TableShowDataTypeProvince:
                 tableData = model.subAreas
+                //点击到省 以后 要把 省下面的市 列表赋值给当前 citiesArr
+                citiesArr = model.subAreas
                 currentType = .TableShowDataTypeCities
                 regionInfo.provinceCode = model.areaId
                 regionInfo.provinceText = model.areaName
@@ -212,6 +217,8 @@ extension DYTAreaPickerView {
                 break
             case .TableShowDataTypeCities:
                 tableData = model.subAreas
+                //点击到市 以后 要把 省下面的区县列表赋值给当前 areaArr
+                areaArr = model.subAreas
                 currentType = .TableShowDataTypeArea
                 regionInfo.cityCode = model.areaId
                 regionInfo.cityText = model.areaName
@@ -322,7 +329,7 @@ extension DYTAreaPickerView {
             
             tableData = dataList
             currentType = .TableShowDataTypeProvince
-            reloadAreaData("")
+            reloadAreaData(regionInfo.provinceCode)
             
         }else {
             //走到这儿 说明 该市 下面没有区县了
@@ -516,7 +523,7 @@ class AreaCell: UITableViewCell {
         contentView.addSubview(chooseImg)
         
         letter.frame = CGRect(x: 16, y: 11, width: 12, height: 17)
-        areaLab.frame = CGRect(x: 32, y: 9, width: 100, height: 20)
+        areaLab.frame = CGRect(x: 32, y: 9, width: 200, height: 20)
         chooseImg.frame = CGRect(x: UIScreen.main.bounds.size.width - 20 - 16, y: 9, width: 20, height: 20)
         areaLab.isUserInteractionEnabled = false
     }
@@ -647,20 +654,20 @@ class ShowAreaView: UIView {
         let btnHeight = 46
         
         
-        provinceLab.frame = CGRect(x: 32, y: topMargin, width: 150, height: labHeight)
+        provinceLab.frame = CGRect(x: 32, y: topMargin, width: 200, height: labHeight)
         provincePoint.frame = CGRect(x: 16, y: 19, width: 6, height: 6)
         firstLine.frame = CGRect(x: 18.5, y: 25, width: 1, height: 42)
         provinceBtn.frame = CGRect(x: 0, y: 0, width: Int(kScreen_width), height: btnHeight)
 
         
-        citiesLab.frame = CGRect(x: 32, y: topMargin + labHeight + labMargin , width: 150, height: labHeight)
+        citiesLab.frame = CGRect(x: 32, y: topMargin + labHeight + labMargin , width: 200, height: labHeight)
         citiesPoint.frame = CGRect(x: 16, y: citiesLab.frame.origin.y + 8, width: 6, height: 6)
 
         secondLine.frame = CGRect(x: 18.5, y: 73, width: 1, height: 42)
         citiesBtn.frame = CGRect(x: 0, y: btnHeight, width: Int(kScreen_width), height: btnHeight)
         
         
-        areaLab.frame = CGRect(x: 32, y: topMargin + labHeight * 2 + labMargin * 2 , width: 150, height: labHeight)
+        areaLab.frame = CGRect(x: 32, y: topMargin + labHeight * 2 + labMargin * 2 , width: 200, height: labHeight)
         areaPoint.frame = CGRect(x: 16, y: areaLab.frame.origin.y + 8, width: 6, height: 6)
 
         areaBtn.frame = CGRect(x: 0, y: btnHeight * 2, width: Int(kScreen_width), height: btnHeight)
